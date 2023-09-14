@@ -1,16 +1,23 @@
 ---
-
+import Intro from "../components/intro.astro";
+import Footer from "../components/footer.astro";
+import "../styles/global.css";
 ---
 
-<html lang="en">
+<!doctype html>
+<html lang="es">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>Magec Jimenez</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Web personal y portfolio de Magec Jimenez"
+    />
   </head>
-  <body>
-    <h1>Astro :D</h1>
+  <body class="bg-neutral-900 snap-y snap-mandatory h-full w-full">
+    <Intro />
+    <Footer />
   </body>
 </html>

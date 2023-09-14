@@ -1,0 +1,14 @@
+---
+import { Image } from "astro:assets";
+
+import astro from "../resources/images/tecs/astro.svg";
+import preact from "../resources/images/tecs/preact.svg";
+---
+
+<footer class="flex justify-between xl:mx-20 p-2 xl:p-6 items-center">
+  <span class="">Magec Jiménez 👷</span>
+  <span class="grid grid-flow-col gap-x-2 xl:gap-x-6">
+    <Image src={astro} alt="astro" class="h-8 w-8" />
+    <Image src={preact} alt="preact" class="h-8 w-8" />
+  </span>
+</footer>
