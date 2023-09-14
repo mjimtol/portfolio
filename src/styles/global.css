@@ -52,10 +52,42 @@
 }
 
 /***************** TEXTOS ******************/
-.titulo {
+.tituloGrande {
   font-size: clamp(3rem, 6vw + 1rem, 8rem);
   font-family: 'CMU, Arial, Helvetica, sans-serif';
 }
 
+.tituloSobreMi {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  font-size: clamp(3rem, 6vw + 1rem, 8rem);
+}
+
+/***************** SOBRE MI ******************/
+.appearingText{
+  view-timeline: --written-text;
+}
+
+.appearingText :nth-child(1) {
+  animation: disappear linear both;
+  animation-timeline: --written-text;
+}
+.appearingText :nth-child(2) {
+  animation: appear linear both;
+  animation-timeline: --written-text;
+}
+
+@keyframes appear {
+  from { display: none; }
+  50% { display: none; }
+  to { display: block; }
+
+}
+
+@keyframes disappear {
+  from { display: block; }
+  50% { display: none; }
+  to { display: none; }
+}
 
 /*****************  ******************/
