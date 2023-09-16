@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+import { getCollection, CollectionEntry } from "astro:content";
+
+import Layout from "../layouts/layout.astro";
+
+export async function getStaticPaths() {
+  const trabajos = await getCollection("jobs");
+
+  return trabajos.map((jobs: CollectionEntry<"jobs">) => {
+    return {
+      params: {
+        experiencia: jobs.slug,
+      },
+      props: {
+        jobs,
+      },
+    };
+  });
+}
+
+interface Props {
+  jobs: CollectionEntry<"jobs">;
+}
+
+const { jobs } = Astro.props;
+const { Content } = await jobs.render();
+---
+
+<Layout>
+  <div class="bg-neutral-900">
+    <Image
+      alt={jobs.data.name}
+      src={jobs.data.image}
+      width={200}
+      height={200}
+      format="webp"
+      transition:name="job-image"
+    />
+    <Content />
+  </div>
+</Layout>

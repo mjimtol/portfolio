@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+import itop from "../../resources/images/mivida/itop.png";
+---
+
+<h1 class="mb-0 p-10 mt-20 w-full text-center text-5xl">Experiencia</h1>
+<section class={`flex justify-center bgExp ExpSection flex-row`}>
+  {/* Logos */}
+  <div class="lg:w-[40%] w-full text-center m-auto">
+    <a href="/itop">
+      <Image alt="Itop" src={itop} format="webp" transition:name="job-image" />
+    </a>
+  </div>
+
+  {/* Años */}
+  <div class="w-[40%] p-0 m-0 justify-center hidden lg:flex">
+    <article class="mt-10 overflow-x-hidden lg:overflow-visible">
+      <h2 class="text-3xl lg:text-5xl">XXX</h2>
+    </article>
+  </div>
+</section>

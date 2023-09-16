@@ -1,6 +1,9 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
 import Intro from "../components/intro.astro";
 import SobreMi from "../components/sobremi.astro";
+import MiVida from "../components/mivida.astro";
 import Footer from "../components/footer.astro";
 import "../styles/global.css";
 ---
@@ -8,6 +11,7 @@ import "../styles/global.css";
 <!doctype html>
 <html lang="es">
   <head>
+    <ViewTransitions />
     <title>Magec Jimenez</title>
     <meta charset="UTF-8" />
     <link rel="icon" href="./favicon.ico" />
@@ -20,6 +24,7 @@ import "../styles/global.css";
   <body class="bg-neutral-900 snap-y snap-mandatory h-full w-full">
     <Intro />
     <SobreMi />
+    <MiVida />
     <Footer />
   </body>
 </html>
