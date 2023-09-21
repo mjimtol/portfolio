@@ -63,6 +63,26 @@
   font-size: clamp(3rem, 6vw + 1rem, 8rem);
 }
 
+.tituloVida {
+  background: radial-gradient(hsl(100 100% 60%), hsl(200 100% 60%)) fixed;
+  background: conic-gradient(
+          rgb(7, 255, 127),
+          hsl(200 100% 60%),
+          rgb(7, 255, 127)
+      )
+      fixed;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* font-size: 8vmin; */
+}
+
+.tituloVida span {
+  line-height: 1.1;
+  margin: auto;
+  padding: 10px;
+}
+
 /***************** SOBRE MI ******************/
 .appearingText{
   view-timeline: --written-text;
@@ -91,3 +111,4 @@
 }
 
 /*****************  ******************/
+

@@ -1,21 +1,59 @@
 ---
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
 import itop from "../../resources/images/mivida/itop.png";
+
+const allJobs = await getCollection("jobs");
 ---
 
 <h1 class="mb-0 p-10 mt-20 w-full text-center text-5xl">Experiencia</h1>
-<section class={`flex justify-center bgExp ExpSection flex-row`}>
+<section class={`flex justify-center flex-row w-3/4 m-auto`}>
   {/* Logos */}
   <div class="lg:w-[40%] w-full text-center m-auto">
-    <a href="/itop">
-      <Image alt="Itop" src={itop} format="webp" transition:name="job-image" />
-    </a>
+    {
+      allJobs
+        .sort((j1, j2) => j2.data.year - j1.data.year)
+        .map((job) => {
+          return (
+            <section>
+              <div class="h-[350px] flex p-0 mt-10 items-center flex-row">
+                <a href={job.slug} class="w-48">
+                  <Image
+                    alt="Itop"
+                    src={job.data.logo}
+                    width={200}
+                    format="webp"
+                    transition:name="job-image"
+                  />
+                </a>
+              </div>
+            </section>
+          );
+        })
+    }
   </div>
 
   {/* Años */}
   <div class="w-[40%] p-0 m-0 justify-center hidden lg:flex">
-    <article class="mt-10 overflow-x-hidden lg:overflow-visible">
-      <h2 class="text-3xl lg:text-5xl">XXX</h2>
-    </article>
+    <div class={`flex m-0 p-0 flex-row`}>
+      <!-- PATH -->
+      <div>
+        {
+          allJobs
+            .sort((j1, j2) => j2.data.year - j1.data.year)
+            .map((job) => {
+              return (
+                <section>
+                  <div class="h-[350px] flex p-0 mt-10 items-center flex-row">
+                    <div class="h-10 w-10 m-0 p-0 bg-white rounded-full -translate-x-1/2" />
+                    <h2 class="text-2xl font-bold">{job.data.year}</h2>
+                  </div>
+                </section>
+              );
+            })
+        }
+      </div>
+    </div>
   </div>
 </section>

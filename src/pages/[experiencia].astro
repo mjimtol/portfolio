@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import { getCollection, CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
 import Layout from "../layouts/layout.astro";
 
@@ -28,15 +29,19 @@ const { Content } = await jobs.render();
 ---
 
 <Layout>
-  <div class="bg-neutral-900">
-    <Image
-      alt={jobs.data.name}
-      src={jobs.data.image}
-      width={200}
-      height={200}
-      format="webp"
-      transition:name="job-image"
-    />
-    <Content />
-  </div>
+  <article class="flex w-full justify-evenly items-center h-full">
+    <section>
+      <Image
+        alt={jobs.data.name}
+        src={jobs.data.logo}
+        width={200}
+        height={200}
+        format="webp"
+        transition:name="job-image"
+      />
+    </section>
+    <section>
+      <Content />
+    </section>
+  </article>
 </Layout>
