@@ -2,8 +2,6 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
-import itop from "../../resources/images/mivida/itop.png";
-
 const allJobs = await getCollection("jobs");
 ---
 
@@ -20,11 +18,11 @@ const allJobs = await getCollection("jobs");
               <div class="h-[350px] flex p-0 mt-10 items-center flex-row">
                 <a href={job.slug} class="w-48">
                   <Image
-                    alt="Itop"
+                    alt={job.slug}
                     src={job.data.logo}
                     width={200}
                     format="webp"
-                    transition:name="job-image"
+                    transition:name={`image_${job.slug}`}
                   />
                 </a>
               </div>
@@ -37,14 +35,23 @@ const allJobs = await getCollection("jobs");
   {/* Años */}
   <div class="w-[40%] p-0 m-0 justify-center hidden lg:flex">
     <div class={`flex m-0 p-0 flex-row`}>
-      <!-- PATH -->
+      <div class={`absolute h-full p-0 m-0 -translate-x-1/2 contenedorPath`}>
+        <svg id="svgLine" width="5" height="100" viewBox="0 0 5 1" fill="none">
+          <path
+            d="M3 0.5 L2 100"
+            class="pathLine"
+            stroke="white"
+            stroke-width="4"></path>
+        </svg>
+      </div>
+      <!-- class={`pathLine${nombre} svgPath`} -->
       <div>
         {
           allJobs
             .sort((j1, j2) => j2.data.year - j1.data.year)
             .map((job) => {
               return (
-                <section>
+                <section class="textoQueAparece">
                   <div class="h-[350px] flex p-0 mt-10 items-center flex-row">
                     <div class="h-10 w-10 m-0 p-0 bg-white rounded-full -translate-x-1/2" />
                     <h2 class="text-2xl font-bold">{job.data.year}</h2>

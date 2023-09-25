@@ -6,25 +6,13 @@ import SobreMi from "../components/sobremi.astro";
 import MiVida from "../components/mivida.astro";
 import Footer from "../components/footer.astro";
 import "../styles/global.css";
+
+import Layout from "../layouts/layout.astro";
 ---
 
-<!doctype html>
-<html lang="es">
-  <head>
-    <ViewTransitions />
-    <title>Magec Jimenez</title>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="./favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Web personal y portfolio de Magec Jimenez"
-    />
-  </head>
-  <body class="bg-neutral-900 snap-y snap-mandatory h-full w-full">
-    <Intro />
-    <SobreMi />
-    <MiVida />
-    <Footer />
-  </body>
-</html>
+<Layout>
+  <Intro />
+  <SobreMi />
+  <MiVida />
+  <Footer />
+</Layout>
