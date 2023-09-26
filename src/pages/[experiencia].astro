@@ -26,6 +26,7 @@ interface Props {
 }
 
 const { jobs } = Astro.props;
+const { data } = jobs;
 const { Content } = await jobs.render();
 ---
 
@@ -34,16 +35,25 @@ const { Content } = await jobs.render();
     <ViewTransitions />
     <section class="flex justify-center">
       <Image
-        alt={jobs.data.name}
-        src={jobs.data.logo}
+        alt={data.name}
+        src={data.logo}
         width={300}
         height={300}
         format="webp"
         transition:name={`image_${jobs.slug}`}
       />
     </section>
+    <h1 class="w-fit mx-auto font-bold text-xl">{data.title}</h1>
     <section class="w-1/2 mx-auto">
       <Content />
     </section>
+    <nav class="w-1/2 mx-auto">
+      <a
+        href={data.url}
+        target="_blank"
+        rel="noreferrer"
+        class="mt-6 text-blue-300 underline text-lg">Página web</a
+      >
+    </nav>
   </article>
 </Layout>
