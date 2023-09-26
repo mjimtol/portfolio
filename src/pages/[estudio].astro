@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { ViewTransitions } from "astro:transitions";
+
+import Layout from "../layouts/layout_md.astro";
+
+export async function getStaticPaths() {
+  const estudios = await getCollection("studies");
+
+  return estudios.map((studies: CollectionEntry<"studies">) => {
+    return {
+      params: {
+        estudio: studies.slug,
+      },
+      props: {
+        studies,
+      },
+    };
+  });
+}
+
+interface Props {
+  studies: CollectionEntry<"studies">;
+}
+
+const { studies } = Astro.props;
+const { data } = studies;
+const { Content } = await studies.render();
+---
+
+<Layout>
+  <article class="flex flex-col w-full h-full gap-4 pt-7">
+    <ViewTransitions />
+    <section class="flex justify-center">
+      <Image
+        alt={data.name}
+        src={data.logo}
+        width={300}
+        height={300}
+        format="webp"
+        transition:name={`image_${studies.slug}`}
+      />
+    </section>
+    <h1 class="w-fit mx-auto font-bold text-xl">{data.title}</h1>
+    <section class="w-1/2 mx-auto">
+      <Content />
+    </section>
+  </article>
+</Layout>

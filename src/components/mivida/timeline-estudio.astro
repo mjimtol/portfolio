@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+const allStudies = await getCollection("studies");
+---
+
+<h1 class="mb-0 p-10 mt-20 w-full text-center text-5xl">Estudios</h1>
+<section class={`flex justify-center flex-row w-3/4 m-auto`}>
+  {/* Años */}
+  <div class="w-[40%] p-0 m-0 justify-center hidden lg:flex">
+    <div class={`flex m-0 p-0 flex-row-reverse`}>
+      <div class={`absolute h-full p-0 m-0 translate-x-1/2 contenedorPath`}>
+        <svg id="svgLine" width="5" height="100" viewBox="0 0 5 1" fill="none">
+          <path
+            d="M3 0.5 L2 100"
+            class="pathLine"
+            stroke="white"
+            stroke-width="4"></path>
+        </svg>
+      </div>
+
+      <div>
+        {
+          allStudies
+            .sort((j1, j2) => j2.data.year - j1.data.year)
+            .map((study) => {
+              return (
+                <section class="textoQueAparece">
+                  <div class="h-[350px] flex p-0 mt-10 items-center flex-row-reverse">
+                    <div class="h-10 w-10 m-0 p-0 bg-white rounded-full translate-x-1/2" />
+                    <h2 class="text-2xl font-bold">{study.data.year}</h2>
+                  </div>
+                </section>
+              );
+            })
+        }
+      </div>
+    </div>
+  </div>
+
+  {/* Logos */}
+  <div class="lg:w-[40%] w-full text-center m-auto">
+    {
+      allStudies
+        .sort((j1, j2) => j2.data.year - j1.data.year)
+        .map((study) => {
+          return (
+            <section>
+              <div class="h-[350px] flex p-0 mt-10 items-center flex-row-reverse">
+                <a href={study.slug} class="w-48">
+                  <Image
+                    alt={study.slug}
+                    src={study.data.logo}
+                    width={200}
+                    format="webp"
+                    transition:name={`image_${study.slug}`}
+                  />
+                </a>
+              </div>
+            </section>
+          );
+        })
+    }
+  </div>
+</section>
