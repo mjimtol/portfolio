@@ -1,44 +1,37 @@
 ---
 import { Image } from "astro:assets";
-import MTG from "../../resources/images/proyectos/MTG.webp";
+
+import { getTagColor, getTagTextColor } from "../../resources/utils";
+
+const { proyecto, key } = Astro.props;
 ---
 
-<a href="www.google.es" target="_blank" rel="noreferrer" id="TITULO">
-  <div class="tarjetav2" style={{ "--bgColor": "red" }}>
+<a href={proyecto.url} target="_blank" rel="noreferrer" id={key}>
+  <div class="tarjetav2" style={{ "--bgColor": proyecto.bgColor }}>
     <div class="poster">
-      <Image src={MTG} alt="img" />
+      <Image src={proyecto.imagen} alt={`imgp-${proyecto.key}`} class={``} />
     </div>
     <div class="details">
-      <h2>
-        <b>TITULO</b>
-      </h2>
+      <h4>
+        <b>{proyecto.titulo}</b>
+      </h4>
       <div class="tags">
-        <span
-          style={{
-            "--bgColor": "yellow",
-            "--textColor": "black",
-          }}
-        >
-          JavaScript
-        </span>
+        {
+          proyecto.tags.map((t: string) => {
+            return (
+              <span
+                style={{
+                  "--bgColor": getTagColor(t),
+                  "--textColor": getTagTextColor(t),
+                }}
+              >
+                {t}
+              </span>
+            );
+          })
+        }
       </div>
-      <div class="info">BLABLABLA</div>
+      <div class="info">{proyecto.texto}</div>
     </div>
   </div>
 </a>
-
-<!-- class="w-48 xl:w-72" -->
-<!-- {
-        proyecto.tags.map((tag) => (
-          <span
-            style={
-              {
-                "--bgColor": getTagColor(tag),
-                "--textColor": getTagTextColor(tag),
-              } as React.CSSProperties
-            }
-          >
-            {tag}
-          </span>
-        ))
-      } -->

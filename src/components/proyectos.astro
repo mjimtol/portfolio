@@ -1,17 +1,19 @@
 ---
 import Tarjeta from "./extra/tarjetaProyecto.astro";
+import { Proyectos as infoProyectos } from "../resources/data/proyectos";
 ---
 
 <section class="min-h-screen w-3/4 content-center m-auto mt-10 pb-10">
-  <h1
+  <h2
     class="text-4xl lg:text-8xl p-10 mb-6 text-center tracking-widest tituloPortfolio"
   >
     Proyectos
-  </h1>
+  </h2>
   <section class="flex gap-10 content-between w-auto flex-wrap justify-center">
-    <!-- {Proyectos.map((proyecto) => {
-        return <CardProject proyecto={proyecto} key={proyecto.titulo} />;
-      })} -->
-    <Tarjeta />
+    {
+      infoProyectos.map((proyecto) => {
+        return <Tarjeta proyecto={proyecto} key={proyecto.titulo} />;
+      })
+    }
   </section>
 </section>
