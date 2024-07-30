@@ -1,6 +1,6 @@
 import type { DatosTarjetas } from './data.types'
 import itop from '../images/mivida/itop.png'
-import inerza from '../images/mivida/inerza.png'
+import inerza from '../images/mivida/inerza.svg'
 import tranviaSVG from '../images/mivida/metroT.svg'
 
 import browser from '../images/mivida/browser.svg'

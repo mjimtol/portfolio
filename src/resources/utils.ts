@@ -7,6 +7,8 @@ export function getTagColor(tech: string) {
             return '#5ed3f3'
         case Techs.JS:
             return '#efd81d'
+        case Techs.TS:
+            return '#2f76c4'
         case Techs.THREE:
             return '#433f81'
         case Techs.ASTRO:
@@ -23,6 +25,7 @@ export function getTagTextColor(tech: string) {
         case Techs.ASTRO:
             return '#000'
         case Techs.THREE:
+        case Techs.TS:
             return '#fff'
         default:
             return '#ccc'

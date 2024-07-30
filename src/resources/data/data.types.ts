@@ -1,7 +1,7 @@
 export type DatosTarjetas = {
     titulo: string
     texto: string
-    imagen: string
+    imagen: string | ImageMetadata
     color: string
     fecha: string
 }
@@ -9,7 +9,7 @@ export type DatosTarjetas = {
 export type DatosProyectos = {
     titulo: string
     texto: string
-    imagen: string
+    imagen: string | ImageMetadata
     bgColor: string
     url: string
     tags: string[]

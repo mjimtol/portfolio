@@ -1,3 +1,4 @@
+import { string } from 'astro/zod';
 import { defineCollection, z } from 'astro:content';
 
 const jobsCollection = defineCollection({
@@ -9,6 +10,7 @@ const jobsCollection = defineCollection({
         logo: image(),
         year: z.number(),
         url: z.string(),
+        content: z.array(z.string()),
       }),
 });
 
@@ -19,6 +21,8 @@ const studiesCollection = defineCollection({
         text: z.string(),
         logo: image(),
         year: z.number(),
+        url: z.string(),
+        content: z.array(z.string()),
     })
 })
 
