@@ -2,7 +2,8 @@
 name: inerza
 text: Este es el texto de prueba
 logo: ../../resources/images/mivida/inerza.svg
-year: 2016
+year_start: 2016
+year_end: 2019
 title: Desarrollo de aplicaciones, consultoría y servicios TIC
 url: https://www.inerza.com/
 content:
