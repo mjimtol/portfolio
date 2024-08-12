@@ -1,0 +1,102 @@
+---
+import { Image } from "astro:assets";
+import eye from "../resources/images/eye.svg";
+import github from "../resources/images/github.svg";
+---
+
+<!doctype html>
+<html lang="es">
+  <head><meta charset="UTF-8" /></head>
+  <body
+    class="max-w-4xl mx-auto min-h-screen px-6 sm:px-8 bg-neutral-900 text-white"
+  >
+    <header class="fixed top-0 h-10 text-lg font-bold">
+      <a href="/" class="flex p-2 hover:text-yellow-300 lg:text-lg text-4xl"
+        >← Volver</a
+      >
+    </header>
+    <div class="p-2">
+      <h1
+        class="w-full text-center font-bold lg:text-4xl text-8xl lg:mt-4 mt-16 mb-12"
+      >
+        Pruebas técnicas realizadas:
+      </h1>
+      <section>
+        <!-- Secciones cada prueba tecnica -->
+
+        <!-- Prueba 1 - Reading list -->
+        <article class="mb-10 flex justify-center">
+          <div
+            class="unset relative flex flex-col gap-8 lg:w-full no-underline hover:bg-black/20 rounded lg:p-4 p-8 transition lg:border border-2 lg:border-black/40 border-gray-600 group
+                lg:flex-row w-3/4"
+          >
+            <span
+              class="ease absolute left-0 top-0 h-0 w-0 border-t-2 border-violet-600 transition-all duration-200 group-hover:w-full"
+            ></span>
+            <span
+              class="ease absolute right-0 top-0 h-0 w-0 border-r-2 border-violet-600 transition-all duration-200 group-hover:h-full"
+            ></span>
+            <span
+              class="ease absolute bottom-0 right-0 h-0 w-0 border-b-2 border-violet-600 transition-all duration-200 group-hover:w-full"
+            ></span>
+            <span
+              class="ease absolute bottom-0 left-0 h-0 w-0 border-l-2 border-violet-600 transition-all duration-200 group-hover:h-full"
+            ></span>
+            <div
+              class="flex justify-center items-center relative lg:w-28 w-full"
+            >
+              <span
+                class="group-hover:opacity-100 group-hover:scale-125 transition block lg:text-6xl text-8xl text-white h-20"
+                >1</span
+              >
+            </div>
+            <div class="flex flex-col gap-6 lg:w-3/4 w-full">
+              <div class="flex-1 mb-4 lg:mb-0">
+                <h2
+                  class="lg:text-3xl text-6xl mb-2 lg:mb-0 dark:text-yellow-300 text-yellow-950"
+                >
+                  Lista de lectura
+                </h2>
+                <p class="text-4xl lg:text-lg">
+                  Implementar una pequeña aplicación de lista de libros - Hecho
+                  con Vite y Preact.
+                </p>
+              </div>
+              <div class="flex gap-10 justify-end">
+                <a
+                  href="https://magecjimenez.es/pruebastecnicas/readinglist/"
+                  class="gap-2 relative inline-flex sm:text-base rounded-full font-medium border-2 border-transparent transition-colors outline-transparent focus:outline-transparent
+                   text-black bg-violet-500 hover:bg-violet-700 hover:text-white focus:border-[#B3B3FD] focus:bg-violet-800 px-4 py-1 sm:py-1.5 sm:px-5 items-center h-20 lg:h-10"
+                >
+                  <Image
+                    class="lg:h-6 w-auto h-8"
+                    alt="ojo"
+                    src={eye}
+                    format="svg"
+                  />
+                  <span class="text-3xl lg:text-lg">Ver Proyecto</span>
+                </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/mjimtol/pruebas-tecnicas/tree/master/pruebas/01-reading-list/mjimtol"
+                  class="gap-2 relative inline-flex sm:text-base rounded-full font-medium border-2 border-transparent transition-colors outline-transparent focus:outline-transparent
+                    text-black bg-violet-500 hover:bg-violet-700 hover:text-white focus:border-[#B3B3FD] focus:bg-violet-800 px-4 py-1 sm:py-1.5 sm:px-5 items-center h-20 lg:h-10"
+                >
+                  <Image
+                    class="lg:h-6 w-auto h-8"
+                    alt="github logo"
+                    src={github}
+                    format="svg"
+                  />
+                  <span class="text-3xl lg:text-lg">GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+        <!--  -->
+      </section>
+    </div>
+  </body>
+</html>
