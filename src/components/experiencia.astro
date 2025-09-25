@@ -1,0 +1,259 @@
+---
+import { Image } from "astro:assets";
+---
+
+<section class="experience">
+  <h1>EXPERIENCIA</h1>
+  <article class="exp-article" aria-hidden="false">
+    <header class="exp-header">Metrotenerife</header>
+    <div class="exp-content">
+      <span>Desarrollador</span>
+
+      <div class="exp-tareas">
+        <div>
+          <svg
+            width="7"
+            height="10"
+            viewBox="0 0 7 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path d="M1.5 1L5.5 5L1.5 9" stroke="#FE8000" stroke-width="2"
+            ></path></svg
+          >Desarrollo app móvil e intranet.
+        </div>
+        <div>
+          <svg
+            width="7"
+            height="10"
+            viewBox="0 0 7 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path d="M1.5 1L5.5 5L1.5 9" stroke="#FE8000" stroke-width="2"
+            ></path></svg
+          >
+          VB, SQL
+        </div>
+      </div>
+    </div>
+    <footer></footer>
+    <div class="line"></div>
+  </article>
+
+  <!-- SVGs: white base + orange fill (pathLength=1 so CSS animations are portable) -->
+  <svg
+    class="whiteline"
+    height="2000"
+    width="1900"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <path
+      d="M 0 0 C 541 41 1118 96 1669 289 C 1926 395 1774 488 1629 499 C 1140 538 711 417 247 704 C 114 770 62 956 422 983 C 805 1001 1077 1010 1613 1130 C 1870 1220 1241 1361 1183 1534"
+      pathLength="1"></path>
+  </svg>
+  <svg
+    class="orangeline"
+    height="2000"
+    width="1900"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <path
+      d="M 0 0 C 541 41 1118 96 1669 289 C 1926 395 1774 488 1629 499 C 1140 538 711 417 247 704 C 114 770 62 956 422 983 C 805 1001 1077 1010 1613 1130 C 1870 1220 1241 1361 1183 1534"
+      pathLength="1"></path>
+  </svg>
+</section>
+
+<style>
+  :root {
+    --accent: #ff7a2b;
+    --white: #ffffff;
+
+    color: var(--white);
+  }
+
+  .experience {
+    position: relative;
+  }
+
+  .exp-article {
+    position: absolute;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    font-size: 1.2rem;
+    padding: 0;
+
+    animation: articleUp 10ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view(45% 50%);
+  }
+
+  .exp-header {
+    font-family: monospace;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--accent);
+    opacity: 1;
+    transform: none;
+  }
+
+  .exp-content {
+    & span {
+      display: block;
+      margin-bottom: 10px;
+      opacity: 0;
+      transform: translateY(24px);
+
+      animation: contentUp 10ms cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view(45% 50%);
+    }
+  }
+
+  .exp-tareas {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    & div {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      line-height: 1;
+      opacity: 0;
+
+      transform: translateX(-32px);
+      animation: liInLeft 10ms cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view(45% 50%);
+    }
+  }
+
+  .exp-article .line {
+    /* content: "";
+    position: absolute;
+    left: -22px;
+    width: 2px;
+    height: 140px;
+    background-color: var(--accent);
+    margin: 0;
+    transform-origin: bottom;
+    transform: scaleY(0);
+
+    animation: lineUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view(45% 50%); */
+  }
+
+  .exp-article footer::before {
+    /* PUNTO */
+    /* content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    left: -22px;
+    top: 50%;
+    transform: translateY(-50%); */
+  }
+
+  .experience h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0 0 200px 0;
+  }
+
+  /* SVG layout */
+  .whiteline,
+  .orangeline {
+    position: absolute;
+    left: 100px;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  .whiteline path {
+    fill: none;
+    stroke: var(--white);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .orangeline path {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: dash 1s linear both;
+    animation-timeline: view(55% 45%);
+
+    filter: drop-shadow(1px 1px 20px rgb(192, 119, 10, 0.5))
+      drop-shadow(1px -1px 20px rgb(192, 119, 10, 0.5))
+      drop-shadow(-5px 5px 25px rgb(192, 119, 10, 0.9))
+      drop-shadow(-5px -5px 25px rgb(192, 119, 10, 0.9));
+  }
+
+  /* Animaciones */
+  @keyframes articleUp {
+    from {
+      transform: translate(450px, -10px) translateY(-10px);
+      opacity: 0.75;
+    }
+    to {
+      transform: translate(450px, -100px) translateY(-20px);
+      opacity: 1;
+    }
+  }
+
+  @keyframes contentUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes liInLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /*** LINES***/
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes goUP {
+    to {
+      transform: translateY(-100px);
+      /* transform: translateX(none); */
+      /* opacity: 1; */
+    }
+  }
+
+  @keyframes showUp {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes lineUp {
+    from {
+      transform: scaleY(0);
+      bottom: 80px;
+    }
+    to {
+      transform: scaleY(1);
+      bottom: 120px;
+    }
+  }
+</style>
