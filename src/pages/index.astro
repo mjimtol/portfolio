@@ -1,16 +1,30 @@
 ---
-
+import Navbar from "@components/navbar.astro";
+import Experiencia from "@components/experiencia.astro";
+import Spacer from "@components/spacer.astro";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <h1>Astro</h1>
+    <Navbar />
+    <Spacer />
+    <Experiencia />
+  </body>
 </html>
+
+<style>
+  body {
+    /* background-image: url("https://static.vecteezy.com/system/resources/previews/021/171/699/large_2x/colorful-abstract-wallpaper-modern-background-ai-generated-photo.jpg"); */
+    /* background-image: url("https://thumbs.dreamstime.com/b/seamless-background-9483329.jpg"); */
+    height: 300vh;
+    background-color: black;
+  }
+</style>
