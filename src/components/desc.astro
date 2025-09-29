@@ -1,0 +1,123 @@
+<section class="desc-intro">
+  <div class="desc-content">
+    <div>
+      <h2>
+        <span>D</span><span>E</span><span>S</span><span>A</span><span>R</span
+        ><span>R</span><span>O</span><span>L</span><span>L</span><span>A</span
+        ><span>D</span><span>O</span><span>R</span>
+      </h2>
+    </div>
+  </div>
+  <div class="desc">
+    <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </div>
+</section>
+
+<style>
+  .desc-intro {
+    width: 85vw;
+    height: 150vh;
+    margin: auto;
+    margin-bottom: 500px;
+    position: relative;
+  }
+
+  .desc-content {
+    position: sticky;
+    top: 0;
+  }
+
+  .desc-content div:first-child {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .desc{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: end;
+    bottom: 0;
+    
+    & p{
+      max-width: 60vw;
+      transform: translateY(100px);
+      opacity: 0;
+
+      animation: appear ease-in both;
+      animation-timeline: view(50% 0%);
+    }
+  }
+
+ .desc-intro h2 {
+    font-family: monospace;
+    font-size: 10rem;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 1;
+  }
+
+  .desc-intro h2 span {
+    display: inline-block;
+    transform: translateX(2000px);
+
+    animation: cameLeft 0.6s ease-in both;
+    animation-timeline: view(30% 15%);
+  }
+  .desc-intro h2 span:nth-child(1) {
+    animation-delay: calc(var(--delay-base) * 0);
+  }
+  .desc-intro h2 span:nth-child(2) {
+    animation-delay: calc(var(--delay-base) * 1);
+  }
+  .desc-intro h2 span:nth-child(3) {
+    animation-delay: calc(var(--delay-base) * 2);
+  }
+  .desc-intro h2 span:nth-child(4) {
+    animation-delay: calc(var(--delay-base) * 3);
+  }
+  .desc-intro h2 span:nth-child(5) {
+    animation-delay: calc(var(--delay-base) * 4);
+  }
+  .desc-intro h2 span:nth-child(6) {
+    animation-delay: calc(var(--delay-base) * 5);
+  }
+  .desc-intro h2 span:nth-child(7) {
+    animation-delay: calc(var(--delay-base) * 6);
+  }
+  .desc-intro h2 span:nth-child(8) {
+    animation-delay: calc(var(--delay-base) * 7);
+  }
+  .desc-intro h2 span:nth-child(9) {
+    animation-delay: calc(var(--delay-base) * 8);
+  }
+  .desc-intro h2 span:nth-child(10) {
+    animation-delay: calc(var(--delay-base) * 9);
+  }
+  .desc-intro h2 span:nth-child(11) {
+    animation-delay: calc(var(--delay-base) * 10);
+  }
+  .desc-intro h2 span:nth-child(12) {
+    animation-delay: calc(var(--delay-base) * 11);
+  }
+  .desc-intro h2 span:nth-child(13) {
+    animation-delay: calc(var(--delay-base) * 12);
+  }
+
+  @keyframes cameLeft {
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes appear {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
