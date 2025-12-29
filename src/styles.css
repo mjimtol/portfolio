@@ -1,0 +1,11 @@
+.font-mono-md, .font-mono-sm {
+    font-family: var(--font-nb-international-mono);
+    letter-spacing: -.035rem;
+    line-height: 130%;
+    text-transform: uppercase;
+}
+
+:root {
+    padding: 100000;
+    background-color: red !important;
+}
